@@ -9,5 +9,9 @@ jobs:
       - name: demo
         run: |
           apt update
-          apt install lsb-release
-          lsb_release -a
+          apt install ninja-build gettext cmake unzip curl
+          git clone https://github.com/neovim/neovim
+          cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+          cpack --config build/CPackConfig.cmake -G DEB
+          ls -l build
+          ls -l build/bin
