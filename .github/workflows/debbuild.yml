@@ -3,6 +3,7 @@ on:
   workflow_dispatch
 jobs:
   do-in-container:
+    runs-on: ubuntu-latest
     container: debian:sid
     steps:
       - name: demo
