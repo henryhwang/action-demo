@@ -1,0 +1,11 @@
+name: Build debian package
+on:
+  workflow-dispatch
+jobs:
+  do-in-container:
+    container: debian:sid
+    steps:
+      - name: demo
+        run: |
+          apt install lsb-release
+          lsb_release
