@@ -10,4 +10,4 @@ jobs:
         run: |
           apt update
           apt install lsb-release
-          lsb_release
+          lsb_release -a
