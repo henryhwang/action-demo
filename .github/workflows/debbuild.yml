@@ -37,3 +37,13 @@ jobs:
         run: |
           pwd
           ls -la
+  build-for-arm64:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install qemu-user-static
+        run: |
+          apt-get update
+          apt-get -qq install qemu-user-static
+      - name: run arm64 container
+        run: |
+          docker --rm --platform linux/arm64 debian:bullseye uname -a
