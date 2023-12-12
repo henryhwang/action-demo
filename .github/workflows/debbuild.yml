@@ -9,7 +9,7 @@ jobs:
       - name: demo
         run: |
           apt-get update
-          apt-get -y -q --no-install-recommand install ninja-build gettext cmake unzip curl git file
+          apt-get -y -qq --no-install-recommands install ninja-build gettext cmake unzip curl git file
           git clone https://github.com/neovim/neovim
           cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
           cpack --config build/CPackConfig.cmake -G DEB
@@ -21,8 +21,8 @@ jobs:
     steps:
       - name: install dependnecies and tools
         run: |
-          apt-get update && apt-get -y -q upgrade
-          apt-get -y -q --no-install-recommand install ninja-build gettext cmake unzip curl git file
+          apt-get update && apt-get -y -qq upgrade
+          apt-get -y -qq --no-install-recommands install ninja-build gettext cmake unzip curl git file
       - name: get source using action
         uses: actions/checkout@v4
         with:
