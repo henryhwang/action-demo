@@ -40,9 +40,9 @@ jobs:
   build-for-arm64:
     runs-on: ubuntu-latest
     steps:
-      - name: update apt source
-        run: |
-          apt-get update
+      # - name: update apt source
+      #   run: |
+      #     apt-get update
       - name: install qemu-user-static
         run: |
           # apt-get update
