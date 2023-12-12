@@ -1,6 +1,6 @@
 name: Build debian package
 on:
-  workflow-dispatch
+  workflow_dispatch
 jobs:
   do-in-container:
     container: debian:sid
