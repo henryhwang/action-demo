@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: install dependnecies and tools
         run: |
-          apt update && apt upgrade
+          apt update && apt -y upgrade
           apt -y install ninja-build gettext cmake unzip curl git file
       - name: get source using action
         uses: actions/checkout@v4
