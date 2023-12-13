@@ -1,0 +1,21 @@
+name: build deb package for arm64
+on: workflow_dispatch
+
+jobs:
+  build-for-arm64:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install qemu-user-static
+        run: |
+          sudo apt-get update
+          sudo apt-get -qq install qemu-user-static
+      - name: run arm64 container
+        run: >
+          docker run --rm --platform linux/arm64 debian:bullseye bash -c "uname -a
+          apt-get -y -qq install ninja-build gettext cmake unzip curl git file
+          git clone https://github.com/neovim/neovim
+          cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+          cpack --config build/CPackConfig.cmake -G DEB
+          ls -l build
+          ls -l build/bin
+          "
