@@ -12,6 +12,7 @@ jobs:
       - name: run arm64 container
         run: >
           docker run --rm --platform linux/arm64 debian:bullseye bash -c "uname -a;
+          apt-get update;
           apt-get -y -qq install ninja-build gettext cmake unzip curl git file;
           git clone https://github.com/neovim/neovim;
           cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo;
